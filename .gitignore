@@ -1,0 +1,10 @@
+# Except this file
+node_modules
+dist
+css
+logs
+src/client/assets/lib
+index.html
+reports
+.idea
+*.log
