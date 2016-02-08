@@ -1,0 +1,4 @@
+(function() {
+	angular
+		.config('distribuidora', []);
+})();
