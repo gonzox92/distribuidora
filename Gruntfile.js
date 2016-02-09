@@ -14,11 +14,11 @@
 
     	includeSource: {
         options: {
-          basePath: 'src/client/',
+          basePath: 'src/client/assets/lib',
           templates: {
             html: {
               js: '<script src="{filePath}"></script>',
-              css: '<link rel="stylesheet" type="text/css" href="{filePath}"/>'
+              css: '<link rel="stylesheet" type="text/css" href="{filePath}" />'
             }
           }
         },
@@ -41,7 +41,7 @@
 	    watch: {
         client: {
           files: ['src/client/app/**/*.js'],
-          tasks: ['includeSource', 'angularFileLoader']
+          tasks: ['install']
         }
       },
 
