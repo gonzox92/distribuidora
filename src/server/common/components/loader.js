@@ -6,13 +6,14 @@
 
     files.forEach(function (file) {
       var moduleName = path + '/' + file;
-      //console.log("Loading: " + file);
+      console.log("Loading: " + file);
       try {
         var appModule = require(moduleName);
         var mod = appModule(app);
 
         // Executing extra logic after loading the module
         if (afterLoading) {
+          //console.log('Before calling the extra logic');
           afterLoading(mod);
         }
       } catch (e) {
@@ -33,14 +34,28 @@
     // @param[app] The Epxress App to register the routers
     loadResourcesDirectory: function (app) {
       var registeringResources = function (resource) {
-        console.log('Recurso: ' + resource.name + ' \t[OK]');
+        console.log("Registering a resource:" + resource.name);
+        // A module exposes the following API
+        /*
+         {
+         name : String,
+         routes :[ Router ]
+         }
+         */
 
         try {
           // Registering the routers
-          app.use('/api', resource.router);
+          resource.routes.forEach(function (router) {
+            app.use('/api', router);
+          });
+
+          //app.use('/api', require('../rest/rest-resource')('autos'));
+
+          //console.log(app._router.stack);
         } catch (e) {
-          console.error('Recurso: ' + resource.name || 'Desconocido' + ' [FAIL]');
-          console.error(e);
+          console.log('Error while registering routers for resource:' +
+          resource.name || 'Unnamed Resource');
+          console.log(e);
         }
       };
 
