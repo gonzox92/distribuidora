@@ -17,7 +17,7 @@ module.exports = function () {
     next();
   });
 
-  //require('../client/app')(app);
+  require('../client')(app);
 
   return {
     app             : app,

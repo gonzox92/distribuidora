@@ -9,7 +9,9 @@
       console.log("Loading: " + file);
       try {
         var appModule = require(moduleName);
-        var mod = appModule(app);
+        if (typeof appModule === 'function') {
+          var mod = appModule(app);
+        }
 
         // Executing extra logic after loading the module
         if (afterLoading) {
@@ -48,10 +50,6 @@
           resource.routes.forEach(function (router) {
             app.use('/api', router);
           });
-
-          //app.use('/api', require('../rest/rest-resource')('autos'));
-
-          //console.log(app._router.stack);
         } catch (e) {
           console.log('Error while registering routers for resource:' +
           resource.name || 'Unnamed Resource');
