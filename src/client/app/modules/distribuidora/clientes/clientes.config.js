@@ -3,10 +3,10 @@
     .module('distribuidora.clientes')
     .config(clientesConfig);
 
-  function clientes() {
-    return [];
+  function clientes(clientesRest) {
+    return clientesRest.query().$promise;
   }
-  clientes.$inject = ['SERVICE'];
+  clientes.$inject = ['clientesRest'];
 
   clientesConfig.$inject = ['$stateProvider'];
   function clientesConfig($stateProvider) {

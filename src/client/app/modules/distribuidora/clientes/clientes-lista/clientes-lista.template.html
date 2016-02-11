@@ -12,7 +12,15 @@
   </tr>
   </thead>
   <tbody>
+    <tr ng-repeat="cliente in listaClientes.clientes">
+      <td>{{ cliente.cod_client }}</td>
+      <td>{{ cliente.cod_zona }}</td>
+      <td>{{ cliente.cod_tipo_cliente }}</td>
+      <td>{{ cliente.nombres + ' ' + cliente.ap_paterno + ' ' + cliente.ap_materno }}</td>
+      <td>{{ cliente.direccion }}</td>
+      <td>{{ cliente.tefefono }}</td>
+      <td>{{ cliente.celular }}</td>
+      <td>{{ cliente['C.I.'] }}</td>
+    </tr>
   </tbody>
 </table>
-
-{{ listaClientes.clientes }}

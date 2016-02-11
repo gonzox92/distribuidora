@@ -1,7 +1,7 @@
 (function () {
   angular
     .module('distribuidora.clientes')
-    .factory('ClientesRest', ClientesRestService);
+    .factory('clientesRest', ClientesRestService);
 
   ClientesRestService.$inject = [
     '$q',
