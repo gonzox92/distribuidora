@@ -9,17 +9,11 @@
   ];
 
   function distribuidoraConfig($urlRouterProvider, $stateProvider) {
+    $urlRouterProvider.otherwise('/');
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'index.html'
-      })
-      .state('home.menu', {
-        url: '/home',
-        parent: 'home',
         templateUrl: 'app/modules/distribuidora/distribuidora.template.html'
       });
-
-    $urlRouterProvider.otherwise('/home');
   }
 })();

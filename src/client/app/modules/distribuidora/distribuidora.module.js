@@ -2,6 +2,7 @@
 	angular
 		.module('distribuidora', [
 			'common',
-			'thirdPartyDependencies'
+			'thirdPartyDependencies',
+      'distribuidora.clientes'
 		]);
 })();
