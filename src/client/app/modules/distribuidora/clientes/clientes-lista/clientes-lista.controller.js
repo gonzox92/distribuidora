@@ -3,13 +3,28 @@
     .module('distribuidora.clientes')
     .controller('clientesListaController', clientesListaController);
 
-  clientesListaController.$inject = ['clientes'];
+  clientesListaController.$inject = ['clientes', 'ngDialog', 'clientesRest'];
 
-  function clientesListaController(clientes) {
+  function clientesListaController(clientes, ngDialog, clientesRest) {
     var me = this;
-
     me.clientes = clientes;
 
-    console.log(clientes);
+    ClienteRest.$inject = ['clientesRest']
+    function ClienteRest(clientesRest) {
+      return new clientesRest();
+    }
+
+    function showRegistro() {
+      ngDialog.open({
+        templateUrl: 'app/modules/distribuidora/clientes/clientes-registro/clientes-registro.template.html',
+        controller: 'ClientesRegistro',
+        controllerAs: 'registro',
+        resolve: {
+          Cliente: ClienteRest
+        }
+      });
+    }
+
+    me.showRegistro = showRegistro;
   }
 })();

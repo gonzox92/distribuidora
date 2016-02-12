@@ -2,6 +2,7 @@
 	angular
 		.module('thirdPartyDependencies', [
 			'ui.router',
-			'ngResource'
+			'ngResource',
+      'ngDialog'
 		]);
 })();

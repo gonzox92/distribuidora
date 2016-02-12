@@ -1,0 +1,51 @@
+<ng-form name="newCliente" class="ui form">
+  <h4 class="ui dividing header">Registrar Cliente</h4>
+
+  <div class="two fields">
+    <div class="field">
+      <label for="Nombre">Nombre</label>
+      <input type="text" id="Nombre" placeholder="Nombre" ng-model="registro.cliente.Nombre"/>
+    </div>
+    <div class="field">
+      <label for="ci">CI</label>
+      <input type="text" id="ci" placeholder="C.I." ng-model="registro.cliente.CI"/>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="ApPaterno">Apellido Paterno</label>
+    <input type="text" id="ApPaterno" placeholder="Paterno" ng-model="registro.cliente.ApellidoPaterno"/>
+  </div>
+
+  <div class="field">
+    <label for="ApMaterno">Apellido Materno</label>
+    <input type="text" id="ApMaterno" placeholder="Materno" ng-model="registro.cliente.ApellidoMaterno"/>
+  </div>
+
+  <div class="field">
+    <label for="Direccion">Direccion</label>
+    <input type="text" id="Direccion" placeholder="Direccion" ng-model="registro.cliente.Direccion"/>
+  </div>
+
+  <div class="two fields">
+    <div class="field">
+      <label for="Telefono">Telefono</label>
+      <input type="text" id="Telefono" placeholder="Telefono" ng-model="registro.cliente.Telefono"/>
+    </div>
+    <div class="field">
+      <label for="Celular">Celular</label>
+      <input type="text" id="Celular" placeholder="Celular" ng-model="registro.cliente.Celular"/>
+    </div>
+  </div>
+
+  <div class="centered">
+    <button class="medium ui teal button" ng-click="registro.registrarCliente()">
+      Registrar
+    </button>
+
+    <button class="medium ui red button">
+      Cancelar
+    </button>
+  </div>
+
+</ng-form>

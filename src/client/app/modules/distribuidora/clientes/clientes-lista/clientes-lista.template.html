@@ -1,3 +1,13 @@
+<h2 class="ui dividing header">Clientes</h2>
+
+<div class="overlay fixed" style="position: fixed; top: 80px; left: 20px; z-index: 1;">
+  <div class="ui vertical icon menu">
+    <a class="item" ng-click="listaClientes.showRegistro()">
+      <i class="add user icon"></i>
+    </a>
+  </div>
+</div>
+
 <table class="ui fixed single line celled table">
   <thead>
   <tr>
@@ -13,14 +23,14 @@
   </thead>
   <tbody>
     <tr ng-repeat="cliente in listaClientes.clientes">
-      <td>{{ cliente.cod_client }}</td>
-      <td>{{ cliente.cod_zona }}</td>
-      <td>{{ cliente.cod_tipo_cliente }}</td>
-      <td>{{ cliente.nombres + ' ' + cliente.ap_paterno + ' ' + cliente.ap_materno }}</td>
-      <td>{{ cliente.direccion }}</td>
-      <td>{{ cliente.tefefono }}</td>
-      <td>{{ cliente.celular }}</td>
-      <td>{{ cliente['C.I.'] }}</td>
+      <td>{{ cliente.CodCliente }}</td>
+      <td>{{ cliente.CodZona }}</td>
+      <td>{{ cliente.CodTipoCliente }}</td>
+      <td>{{ cliente.Nombre + ' ' + cliente.ApellidoPaterno + ' ' + cliente.ApellidoMaterno }}</td>
+      <td>{{ cliente.Direccion }}</td>
+      <td>{{ cliente.Telefono }}</td>
+      <td>{{ cliente.Celular }}</td>
+      <td>{{ cliente.CI }}</td>
     </tr>
   </tbody>
 </table>

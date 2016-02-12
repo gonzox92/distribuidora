@@ -20,8 +20,9 @@ module.exports = function (name) {
       connection.query(sql, performQuery(res));
     })
     .post(function (req, res) {
+      var data = req.body.data || req.body;
       var sql = 'INSERT INTO ' + name + ' SET ?';
-      connection.query(sql, req.body, performQuery(res));
+      connection.query(sql, data, performQuery(res));
     });
 
   router
