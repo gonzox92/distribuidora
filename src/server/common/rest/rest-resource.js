@@ -13,6 +13,27 @@ module.exports = function (name) {
     }
   }
 
+  function performUniqueSelect(res) {
+    return function (err, results) {
+      if (err) {
+        res.send(err);
+      }
+      res.send(results[0]);
+    }
+  }
+
+  function performInsert(res) {
+    return function (err, results) {
+      if (err) {
+        res.send(err);
+      }
+      
+      var insertId = results.insertId;
+      var sql = 'SELECT * FROM ' + name + ' WHERE id = ' + insertId;
+      connection.query(sql, performUniqueSelect(res));
+    }
+  }
+
   router
     .route('/' + name)
     .get(function (req, res) {
@@ -22,7 +43,7 @@ module.exports = function (name) {
     .post(function (req, res) {
       var data = req.body.data || req.body;
       var sql = 'INSERT INTO ' + name + ' SET ?';
-      connection.query(sql, data, performQuery(res));
+      connection.query(sql, data, performInsert(res));
     });
 
   router

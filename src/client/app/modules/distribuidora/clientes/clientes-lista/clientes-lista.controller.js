@@ -15,12 +15,15 @@
     }
 
     function showRegistro() {
-      ngDialog.open({
+      var dialog = ngDialog.open({
         templateUrl: 'app/modules/distribuidora/clientes/clientes-registro/clientes-registro.template.html',
         controller: 'ClientesRegistro',
         controllerAs: 'registro',
         resolve: {
-          Cliente: ClienteRest
+          Cliente: ClienteRest,
+          clientes: function () {
+            return me.clientes;
+          }
         }
       });
     }

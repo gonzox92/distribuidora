@@ -3,9 +3,13 @@
     .module('distribuidora.clientes')
     .controller('ClientesRegistro', ClientesRegistro);
 
-  ClientesRegistro.$inject = ['Cliente'];
-  function ClientesRegistro(Cliente) {
+  ClientesRegistro.$inject = ['Cliente', 'clientes', 'ngDialog'];
+  function ClientesRegistro(Cliente, clientes, ngDialog) {
     var me = this;
+
+    me.cerrarRegistro = function () {
+      ngDialog.closeAll();
+    }
 
     me.Cliente = Cliente;
     me.cliente = {
@@ -21,11 +25,12 @@
     function registrarCliente() {
       me.Cliente.data = me.cliente;
       me.Cliente.$save().then(
-        function() {
-          console.log('Success');
+        function(data) {
+          clientes.push(data);
+          ngDialog.closeAll();
         },
         function(error) {
-          console.error(error);
+          console.log(error);
         }
       );
     }
