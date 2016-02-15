@@ -1,0 +1,17 @@
+<div>
+	<label>Desea eliminar el registro del cliente?</label><br>
+	<b>{{ 
+		mensaje.cliente.current.Nombre + ' ' + 
+		mensaje.cliente.current.ApellidoPaterno + ' ' + 
+		mensaje.cliente.current.ApellidoMaterno 
+	}}</b>
+	<div class="field">
+		<button class="medium ui teal button" ng-click="mensaje.eliminarCliente()">
+      Aceptar
+    </button>
+
+    <button class="medium ui red button" ng-click="mensaje.cancelar()">
+      Cancelar
+    </button>
+	</div>
+</div>

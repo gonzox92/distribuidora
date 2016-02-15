@@ -22,13 +22,13 @@ module.exports = function (name) {
     }
   }
 
-  function performInsert(res) {
+  function performInsert(res, id) {
     return function (err, results) {
       if (err) {
         res.send(err);
       }
       
-      var insertId = results.insertId;
+      var insertId = results.insertId !== 0 ? results.insertId : id;
       var sql = 'SELECT * FROM ' + name + ' WHERE id = ' + insertId;
       connection.query(sql, performUniqueSelect(res));
     }
@@ -50,11 +50,13 @@ module.exports = function (name) {
     .route('/' + name + '/:id')
     .get(function (req, res) {
       var sql = 'SELECT * FROM ' + name + ' WHERE id = ' + req.params.id;
-      connection.query(sql, performQuery(res));
+      connection.query(sql, performUniqueSelect(res));
     })
     .put(function (req, res) {
+      var data = req.body.data || req.body;
       var sql = 'UPDATE ' + name + ' SET ? WHERE id = ' + req.params.id;
-      connection.query(sql, req.body, performQuery(res));
+      delete req.body.ID;
+      connection.query(sql, data, performInsert(res, req.params.id));
     })
     .delete(function (req, res) {
       var sql = 'DELETE FROM ' + name + ' WHERE id = ' + req.params.id;

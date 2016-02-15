@@ -4,13 +4,15 @@
   <div class="ui vertical icon menu">
     <a class="item" ng-click="listaClientes.showRegistro()">
       <i class="add user icon"></i>
+      Nuevo
     </a>
   </div>
 </div>
 
-<table class="ui fixed single line celled table">
+<table class="ui selectable compact celled definition table">
   <thead>
   <tr>
+    <th></th>
     <th>Codigo</th>
     <th>Cod. Zona</th>
     <th>Cod. Tipo</th>
@@ -23,9 +25,17 @@
   </thead>
   <tbody>
     <tr ng-repeat="cliente in listaClientes.clientes">
-      <td>{{ cliente.CodCliente }}</td>
-      <td>{{ cliente.CodZona }}</td>
-      <td>{{ cliente.CodTipoCliente }}</td>
+      <td class="collapsing"> 
+        <a href ng-click="listaClientes.showEliminar($index, cliente)">
+          <i class="remove icon"></i>
+        </a>
+        <a href ng-click="listaClientes.showRegistro($index)">
+          <i class="edit icon"></i>
+        </a>
+      </td>
+      <td class="collapsing">{{ cliente.CodCliente }}</td>
+      <td class="collapsing">{{ cliente.CodZona }}</td>
+      <td class="collapsing">{{ cliente.CodTipoCliente }}</td>
       <td>{{ cliente.Nombre + ' ' + cliente.ApellidoPaterno + ' ' + cliente.ApellidoMaterno }}</td>
       <td>{{ cliente.Direccion }}</td>
       <td>{{ cliente.Telefono }}</td>

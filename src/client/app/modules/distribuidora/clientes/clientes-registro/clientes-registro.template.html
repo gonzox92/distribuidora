@@ -1,5 +1,5 @@
 <ng-form name="newCliente" class="ui form">
-  <h4 class="ui dividing header">Registrar Cliente</h4>
+  <h4 class="ui dividing header">Cliente</h4>
 
   <div class="two fields">
     <div class="field">
@@ -40,7 +40,7 @@
 
   <div class="centered">
     <button class="medium ui teal button" ng-click="registro.registrarCliente()">
-      Registrar
+      {{ registro.cliente.ID ? 'Modificar' : 'Registrar' }}
     </button>
 
     <button class="medium ui red button" ng-click="registro.cerrarRegistro()">

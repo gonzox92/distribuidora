@@ -21,12 +21,11 @@
       },
       get: {
         method: 'GET',
-        params: {
-          id: '@id'
-        }
+        params: parameters
       },
       save: {
-        method: 'POST'
+        method: 'POST',
+        params: parameters
       },
       update: {
         method: 'PUT',
