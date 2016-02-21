@@ -28,9 +28,7 @@
               if (current.ID === me.cliente.ID) {
                 index = $index;
               }
-            });      
-
-            console.log(index);
+            });
 
             clientes[index].Nombre = me.cliente.Nombre;
             clientes[index].ApellidoPaterno = me.cliente.ApellidoPaterno;

@@ -1,0 +1,45 @@
+<ng-form name="newCarro" class="ui form">
+  <h4 class="ui dividing header">Carro</h4>
+
+  <div class="field">
+    <label for="codCarro">Codigo Carro</label>
+    <input type="text" id="codCarro" placeholder="Codigo carro" ng-model="registro.carro.CodCarro"/>
+  </div>
+
+  <div class="two fields">
+    <div class="field">
+      <label for="Placa">Placa</label>
+      <input type="text" id="Placa" placeholder="Placa" ng-model="registro.carro.Placa"/>
+    </div>
+    <div class="field">
+      <label for="chasi">Nro. Chasis</label>
+      <input type="text" id="chasi" placeholder="Numero de Chasis" ng-model="registro.carro.NumeroChasis"/>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="Marca">Marca</label>
+    <input type="text" id="Marca" placeholder="Marca" ng-model="registro.carro.Marca"/>
+  </div>
+
+  <div class="field">
+    <label for="Modelo">Modelo</label>
+    <input type="text" id="Modelo" placeholder="Marca" ng-model="registro.carro.Modelo"/>
+  </div>
+
+  <div class="field">
+    <label for="Color">Color</label>
+    <input type="text" id="Color" placeholder="Color" ng-model="registro.carro.Color"/>
+  </div>
+
+  <div class="centered">
+    <button class="medium ui teal button" ng-click="registro.registrarCarro()">
+      {{ registro.carro.ID ? 'Modificar' : 'Registrar' }}
+    </button>
+
+    <button class="medium ui red button" ng-click="registro.cerrarRegistro()">
+      Cancelar
+    </button>
+  </div>
+
+</ng-form>

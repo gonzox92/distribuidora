@@ -1,0 +1,42 @@
+<h2 class="ui dividing header">Carros</h2>
+
+<div class="overlay fixed" style="position: fixed; top: 80px; left: 20px; z-index: 1;">
+  <div class="ui vertical icon menu">
+    <a class="item" ng-click="listaCarros.showRegistro()">
+      <i class="add square icon"></i>
+      Nuevo
+    </a>
+  </div>
+</div>
+
+<table class="ui selectable compact celled definition table">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Cod. Carro</th>
+    <th>Placa</th>
+    <th>Nro. Chasis</th>
+    <th>Marca</th>
+    <th>Modelo</th>
+    <th>Color</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="carro in listaCarros.carros">
+    <td class="collapsing">
+      <a href ng-click="listaCarros.showEliminar($index, carro)">
+        <i class="remove icon"></i>
+      </a>
+      <a href ng-click="listaCarros.showRegistro($index)">
+        <i class="edit icon"></i>
+      </a>
+    </td>
+    <td class="">{{ carro.CodCarro }}</td>
+    <td class="">{{ carro.Placa }}</td>
+    <td class="">{{ carro.NumeroChasis }}</td>
+    <td>{{ carro.Marca }}</td>
+    <td>{{ carro.Modelo }}</td>
+    <td>{{ carro.Color }}</td>
+  </tr>
+  </tbody>
+</table>

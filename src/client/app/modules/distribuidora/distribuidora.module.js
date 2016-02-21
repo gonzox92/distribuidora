@@ -3,6 +3,7 @@
 		.module('distribuidora', [
 			'common',
 			'thirdPartyDependencies',
-      'distribuidora.clientes'
+      'distribuidora.clientes',
+      'distribuidora.carros'
 		]);
 })();
