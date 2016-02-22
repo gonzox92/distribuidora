@@ -42,6 +42,7 @@ module.exports = function (name) {
     })
     .post(function (req, res) {
       var data = req.body.data || req.body;
+      //console.log(data);
       var sql = 'INSERT INTO ' + name + ' SET ?';
       connection.query(sql, data, performInsert(res));
     });

@@ -1,0 +1,40 @@
+<h2 class="ui dividing header">Choferes</h2>
+
+<div class="overlay fixed" style="position: fixed; top: 80px; left: 20px; z-index: 1;">
+  <div class="ui vertical icon menu">
+    <a class="item" ng-click="listaChoferes.showRegistro()">
+      <i class="add user icon"></i>
+      Nuevo
+    </a>
+  </div>
+</div>
+
+<table class="ui selectable compact celled definition table">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Codigo</th>
+    <th>Licencia</th>
+    <th>Nombre</th>
+    <th>Celular</th>
+    <th>CI</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="chofer in listaChoferes.choferes">
+    <td class="collapsing">
+      <a href ng-click="listaChoferes.showEliminar($index, chofer)">
+        <i class="remove icon"></i>
+      </a>
+      <a href ng-click="listaChoferes.showRegistro($index)">
+        <i class="edit icon"></i>
+      </a>
+    </td>
+    <td class="collapsing">{{ chofer.CodChofer }}</td>
+    <td class="collapsing">{{ chofer.Licencia }}</td>
+    <td>{{ chofer.Nombre + ' ' + cliente.ApellidoPaterno + ' ' + cliente.ApellidoMaterno }}</td>
+    <td>{{ chofer.Celular }}</td>
+    <td>{{ chofer.CI }}</td>
+  </tr>
+  </tbody>
+</table>

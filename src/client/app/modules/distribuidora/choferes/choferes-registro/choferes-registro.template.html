@@ -1,0 +1,56 @@
+<ng-form name="newChofer" class="ui form">
+  <h4 class="ui dividing header">Chofer</h4>
+
+  <div class="two fields">
+    <div class="field">
+      <label for="CodChofer">Cod. Chofer</label>
+      <input type="text" id="CodChofer" placeholder="Nombre" ng-model="registro.chofer.CodChofer"/>
+    </div>
+    <div class="field">
+      <label for="Licencia">Licencia</label>
+      <select name="Licencia" id="Licencia" ng-model="registro.chofer.Licencia">
+        <option value="A">A</option>
+        <option value="A">B</option>
+        <option value="A">C</option>
+        <option value="A">D</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="two fields">
+    <div class="field">
+      <label for="Nombre">Nombre</label>
+      <input type="text" id="Nombre" placeholder="Nombre" ng-model="registro.chofer.Nombre"/>
+    </div>
+    <div class="field">
+      <label for="ci">CI</label>
+      <input type="text" id="ci" placeholder="C.I." ng-model="registro.chofer.CI"/>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="ApPaterno">Apellido Paterno</label>
+    <input type="text" id="ApPaterno" placeholder="Paterno" ng-model="registro.chofer.ApellidoPaterno"/>
+  </div>
+
+  <div class="field">
+    <label for="ApMaterno">Apellido Materno</label>
+    <input type="text" id="ApMaterno" placeholder="Materno" ng-model="registro.chofer.ApellidoMaterno"/>
+  </div>
+
+  <div class="field">
+    <label for="Celular">Celular</label>
+    <input type="text" id="Celular" placeholder="Celular" ng-model="registro.chofer.Celular"/>
+  </div>
+
+  <div class="centered">
+    <button class="medium ui teal button" ng-click="registro.registrar()">
+      {{ registro.chofer.ID ? 'Modificar' : 'Registrar' }}
+    </button>
+
+    <button class="medium ui red button" ng-click="registro.cerrarRegistro()">
+      Cancelar
+    </button>
+  </div>
+
+</ng-form>

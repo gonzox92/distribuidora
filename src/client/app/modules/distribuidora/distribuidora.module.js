@@ -4,6 +4,7 @@
 			'common',
 			'thirdPartyDependencies',
       'distribuidora.clientes',
-      'distribuidora.carros'
+      'distribuidora.carros',
+      'distribuidora.choferes'
 		]);
 })();
